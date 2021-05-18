@@ -1,86 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<script>
-    var somaUsuario = 0;
-    var somaComputador = 0;
-    var usuarioDado1 = 0;
-    var usuarioDado2 = 0;
-    var computadorDado1 = 0;
-    var computadorDado2 = 0;
-    var mostrarResultado = false;
-    var lancarDados = isset($_POST['lancarDados']) ? true : false;
-    var vencedor = "";
-
-    function lancarDados() {
-        if (this.lancarDados) {
-            this.usuarioDado1 = rand(1, 6);
-            this.usuarioDado2 = rand(1, 6);
-            this.somaUsuario = this.usuarioDado1 + this.usuarioDado2;
-
-            this.computadorDado1 = rand(1, 6);
-            this.computadorDado2 = rand(1, 6);
-            this.somaComputador = this.computadorDado1 + this.computadorDado2;
-
-            if (this.somaUsuario > this.somaComputador) {
-                this.mostrarResultado = true;
-                this.vencedor = "usuario";
-            } else if (this.somaUsuario < this.somaComputador) {
-                this.mostrarResultado = true;
-                this.vencedor = "computador";
-            } else {
-                this.mostrarResultado = true;
-                this.vencedor = "empate";
-            }
-            this.lancarDados = false;
-        }
-    }
-
-    function mostrarResultado() {
-        if (this.mostrarResultado) {
-            switch(this.vencedor) {
-                case "usuario":
-                    return "<p>Você venceu</p>";
-                    this.mostrarResultado = false;
-                    break;
-                case "computador":
-                    return "<p>Você perdeu</p>";
-                    this.mostrarResultado = false;
-                    break; 
-                case "empate":
-                    return "<p>Empate</p>";
-                    this.mostrarResultado = false;
-                    break; 
-            }
-
-        }
-    }
-
-    function gerarImagemDados(numero) {
-        switch(numero) {
-            case 1:
-                return "<img src=\"images/Lado1.png\" style=\"margin-right: 20px;\" alt=\"\">";
-                break;
-            case 2:
-            return "<img src=\"images/Lado2.png\" style=\"margin-right: 20px;\" alt=\"\">";
-                break;
-            case 3:
-                return "<img src=\"images/Lado3.png\" style=\"margin-right: 20px;\" alt=\"\">";
-                break;
-            case 4:
-                return "<img src=\"images/Lado4.png\" style=\"margin-right: 20px;\" alt=\"\">";
-                break;
-            case 5:
-                return "<img src=\"images/Lado5.png\" style=\"margin-right: 20px;\" alt=\"\">";
-                break;
-            case 6:
-                return "<img src=\"images/Lado6.png\" style=\"margin-right: 20px;\" alt=\"\">";
-                break;
-            default:
-                return "<img src=\"\" alt=\"\">";
-                break;
-        }
-    }
-</script>
 <style>
 
 body {
@@ -126,30 +45,12 @@ body {
 
 
 </style>
+
 <head>
     <meta charset="UTF-8">
     <title>Jogo de Dados</title>
 </head>
 <body>
-    
-    <form action="" method="post">
-        <input type="hidden" name="podeLancar" value = "teste">
-        <input type="submit" class="botao-jogar" name="lancarDados" id="lancarDados" value="Jogar">
-    </form>
-    
-    <div class="div-usuario">
-        <h1 style="color: white;">Dados do Usuario</h1>
-
-        
-    </div>
-    
-    <div class="div-resultado">
-       
-    </div>
-    
-    <div class="div-computador">
-        <h1 style="color: white;">Dados do Computador</h1>
-
-    </div>
+    <script  src="script.js"></script>
 </body>
 </html>
